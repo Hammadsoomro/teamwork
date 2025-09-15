@@ -55,14 +55,16 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 mb-4 border border-white/20 shadow-xl space-y-4">
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-          <button type="submit" disabled={loading} className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl shadow-lg transition-all disabled:opacity-50">
-            {loading ? 'Signing in...' : 'Sign In'}
-          </button>
-        </form>
 
-        <p className="text-center text-gray-600 text-sm">
-          New here? <a href="/signup" className="text-indigo-600 font-medium">Create an account</a>
-        </p>
+          <div className="flex gap-3">
+            <button type="submit" disabled={loading} className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl shadow-lg transition-all disabled:opacity-50">
+              {loading ? 'Signing in...' : 'Sign In'}
+            </button>
+            <a href="/signup" className="flex-1 text-center bg-white text-indigo-600 border border-indigo-200 hover:bg-indigo-50 font-semibold py-3 rounded-xl shadow-sm transition-all">
+              Create Account
+            </a>
+          </div>
+        </form>
       </div>
     </div>
   );
