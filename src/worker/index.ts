@@ -127,11 +127,12 @@ app.post('/api/auth/signup', async (c) => {
     .bind(token, userId, expiresAt)
     .run();
 
+  const isSecure = new URL(c.req.url).protocol === 'https:';
   setCookie(c, LOCAL_SESSION_COOKIE, token, {
     httpOnly: true,
     path: '/',
     sameSite: 'lax',
-    secure: true,
+    secure: isSecure,
     maxAge: 30 * 24 * 60 * 60,
   });
 
@@ -165,11 +166,12 @@ app.post('/api/auth/login', async (c) => {
     .bind(token, cred.user_id, expiresAt)
     .run();
 
+  const isSecure = new URL(c.req.url).protocol === 'https:';
   setCookie(c, LOCAL_SESSION_COOKIE, token, {
     httpOnly: true,
     path: '/',
     sameSite: 'lax',
-    secure: true,
+    secure: isSecure,
     maxAge: 30 * 24 * 60 * 60,
   });
 
