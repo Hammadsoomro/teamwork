@@ -191,7 +191,8 @@ app.get('/api/logout', async (c) => {
   if (token) {
     await c.env.DB.prepare('DELETE FROM sessions WHERE token = ?').bind(token).run();
   }
-  setCookie(c, LOCAL_SESSION_COOKIE, '', { httpOnly: true, path: '/', sameSite: 'lax', secure: true, maxAge: 0 });
+  const isSecure = new URL(c.req.url).protocol === 'https:';
+  setCookie(c, LOCAL_SESSION_COOKIE, '', { httpOnly: true, path: '/', sameSite: 'lax', secure: isSecure, maxAge: 0 });
   return c.json({ success: true });
 });
 
