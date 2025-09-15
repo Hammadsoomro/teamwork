@@ -1,6 +1,7 @@
-import { useAuth } from "@getmocha/users-service/react";
-import { Navigate } from "react-router";
-import { Loader2 } from "lucide-react";
+import React from 'react';
+import { useAuth } from '@/react-app/context/AuthContext';
+import { Navigate } from 'react-router';
+import { Loader2 } from 'lucide-react';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;

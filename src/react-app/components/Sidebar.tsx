@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth } from '@getmocha/users-service/react';
+import { useAuth } from '@/react-app/context/AuthContext';
 import { 
   Users, 
   MessageSquare, 
